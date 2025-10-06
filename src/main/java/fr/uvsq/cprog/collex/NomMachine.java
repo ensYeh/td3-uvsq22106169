@@ -11,6 +11,18 @@ public class NomMachine {
     
     this.nommachine = nommachine;
     this.domaine = domaine;
-
   }
+
+    public String getNommachine() {
+    return nommachine;
+  }
+
+  public String getDomaine() {
+    return domaine;
+  }
+
+  public String getNomqualifie() {
+    return nommachine + "." + domaine;
+  }
+
 }
