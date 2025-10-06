@@ -16,8 +16,23 @@ public class AdresseIP {
 
     this.ip = ip;
   }
-  
-  
-  
+
+  public String getIp() {
+    return ip;
+  }
+
+  @Override
+  public boolean equals(Object obj) { 
+    if (this == obj) {
+      return true;
+    }
+
+    if (obj == null || getClass() != obj.getClass()) {
+      return false;
+    }
+
+    AdresseIP IP = (AdresseIP) obj;
+    return ip.equals(IP.ip);
+  }
 
 }
