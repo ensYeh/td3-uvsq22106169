@@ -37,7 +37,15 @@ public class NomMachine {
 
     NomMachine nm = (NomMachine) obj;
     return getNomqualifie().equals(nm.getNomqualifie());
-  
+  }
+
+  @Override
+  public int hashCode() {
+    return getNomqualifie().hashCode();
+  }
+
+  public String toString() {
+    return getNomqualifie();
   }
   
 }
