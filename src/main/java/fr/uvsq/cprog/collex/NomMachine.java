@@ -13,7 +13,7 @@ public class NomMachine {
     this.domaine = domaine;
   }
 
-    public String getNommachine() {
+  public String getNommachine() {
     return nommachine;
   }
 
@@ -25,4 +25,19 @@ public class NomMachine {
     return nommachine + "." + domaine;
   }
 
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+
+    if (obj == null || getClass() != obj.getClass()) {
+      return false;
+    }
+
+    NomMachine nm = (NomMachine) obj;
+    return getNomqualifie().equals(nm.getNomqualifie());
+  
+  }
+  
 }
