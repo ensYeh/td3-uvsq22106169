@@ -35,4 +35,12 @@ public class AdresseIP {
     return ip.equals(IP.ip);
   }
 
+  @Override
+  public int hashCode() {
+    return ip.hashCode();
+  }
+
+  public String toString() {
+    return ip;
+  }
 }
