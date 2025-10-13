@@ -1,30 +1,51 @@
 package fr.uvsq.cprog.collex;
 
+import java.util.Objects;
+
 public class DnsItem {
     
-    private NomMachine nommachine;
+    private NomMachine nomMachine;
     private AdresseIP adresseip;
 
-    public DnsItem(NomMachine nommachine, AdresseIP adresseip) {
-        if (nommachine == null || adresseip == null) {
+    public DnsItem(NomMachine nomMachine, AdresseIP adresseIp) {
+        if (nomMachine == null || adresseIp == null) {
             throw new IllegalArgumentException("NomMAchine et AdresseIP ne peuvent être nuls");
         }
 
-        this.nommachine = nommachine;
-        this.adresseip = adresseip;
+        this.nomMachine = nomMachine;
+        this.adresseIp = adresseIp;
     }
 
     public NomMachine getNommachine() {
-        return nommachine;
+        return nomMachine;
     }
 
     public AdresseIP getIp() {
-        return adresseip;
+        return adresseIp;
     }
 
     @Override
     public String toString() {
-        return adresseip + " " + nommachine;
+        return adresseIp + " " + nomMachine;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        DnsItem d = (DnsItem) obj;
+        return Objects.equals(nomMachine,d.nomMachine) && Objects.equals(adresseIp,d.adresseIp);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nomMachine, adresseIp);
+    }
+ 
 }
