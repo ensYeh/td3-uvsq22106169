@@ -13,7 +13,7 @@ public class Dns{
         try {
             FileInputStream file = new FileInputStream(path);
             Scanner scanner = new Scanner(file);
-
+            
             while(scanner.hasNextLine()) {
                 String ligne = scanner.nextLine().trim(); 
                 if (ligne.isEmpty()) {
@@ -56,5 +56,56 @@ public class Dns{
 
     }
 
+    public List<DnsItem> getEnregistrements() {
+        return enregistrements;
+    }
+
+    public DnsItem getItem(AdresseIP ip) {
+        for (DnsItem item : enregistrements) {
+            if (item.getIp().equals(ip)) {
+                return item;
+            }
+        }
+        return null;
+    }
+    
+    public DnsItem getItem(NomMachine machine) {
+        for (DnsItem item : enregistrements) {
+            if (item.getNommachine().equals(machine)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public List<DnsItem> getItems(String domaine) {
+        List<DnsItem> result = new ArrayList<>();
+        for (DnsItem item : enregistrements) {
+            if (item.getNommachine().getDomaine().equals(domaine)) {
+                result.add(item);
+            }
+        }
+        return result;
+
+    }
+
+    public void addItem(String ipstr, String nom, String domaine ) {
+        AdresseIP ip = new AdresseIP(ipstr);
+        NomMachine machine = new NomMachine(nom, domaine);
+        for (DnsItem item : enregistrements) {
+            if (item.getIp().equals(ip)) {
+                throw new IllegalArgumentException("Erreur : l'adresse IP " + ip + " existe déjà.");
+            }
+
+            if (item.getNommachine().equals(machine)) {
+                throw new IllegalArgumentException("Erreur : la machine " + machine + " existe déjà dans la base.");
+            }
+            
+        }
+        DnsItem item = new DnsItem(machine,ip);
+        enregistrements.add(item);
+        System.out.println("Ajout réussi : " + item);
+
+    }
     
 }
