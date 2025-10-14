@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class DnsItem {
     
-    private NomMachine nomMachine;
-    private AdresseIP adresseip;
+    private final NomMachine nomMachine;
+    private final AdresseIP adresseIp;
 
     public DnsItem(NomMachine nomMachine, AdresseIP adresseIp) {
         if (nomMachine == null || adresseIp == null) {
