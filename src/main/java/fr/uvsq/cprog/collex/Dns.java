@@ -8,8 +8,11 @@ import java.util.*;
 public class Dns{
 
     private final List<DnsItem> enregistrements = new ArrayList<>();
+    private final String path;
     
     public Dns(String path) {
+        this.path = path;
+
         try {
             FileInputStream file = new FileInputStream(path);
             Scanner scanner = new Scanner(file);
@@ -105,6 +108,15 @@ public class Dns{
         DnsItem item = new DnsItem(machine,ip);
         enregistrements.add(item);
         System.out.println("Ajout réussi : " + item);
+
+        
+        try (BufferedWriter w = new BufferedWriter(new FileWriter(this.path, true))) {
+            w.write(ipstr + " " + nom + "." + domaine + System.lineSeparator());
+        } catch (IOException e) {
+            System.err.println("Erreur lors de l'écriture dans le fichier : " + e.getMessage());
+        }
+
+
 
     }
     
