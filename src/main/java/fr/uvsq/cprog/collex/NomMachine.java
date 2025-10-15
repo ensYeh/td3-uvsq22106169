@@ -21,7 +21,7 @@ public class NomMachine {
     return domaine;
   }
 
-  public String getNomqualifie() {
+  public String getNomQualifie() {
     return nommachine + "." + domaine;
   }
 
@@ -36,16 +36,16 @@ public class NomMachine {
     }
 
     NomMachine nm = (NomMachine) obj;
-    return getNomqualifie().equals(nm.getNomqualifie());
+    return getNomQualifie().equals(nm.getNomQualifie());
   }
 
   @Override
   public int hashCode() {
-    return getNomqualifie().hashCode();
+    return getNomQualifie().hashCode();
   }
 
   public String toString() {
-    return getNomqualifie();
+    return getNomQualifie();
   }
   
 }
