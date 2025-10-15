@@ -65,8 +65,8 @@ public class Dns{
 
     public NomMachine getItem(AdresseIP ip) {
         for (DnsItem item : enregistrements) {
-            if (item.getIp().equals(ip)) {
-                return item.getNommachine();
+            if (item.getAdresseIpobj().equals(ip)) {
+                return item.getNomMachineobj();
             }
         }
         return null;
@@ -74,8 +74,8 @@ public class Dns{
     
     public AdresseIP getItem(NomMachine machine) {
         for (DnsItem item : enregistrements) {
-            if (item.getNommachine().equals(machine)) {
-                return item.getIp();
+            if (item.getNomMachineobj().equals(machine)) {
+                return item.getAdresseIpobj();
             }
         }
         return null;
@@ -84,7 +84,7 @@ public class Dns{
     public List<DnsItem> getItems(String domaine) {
         List<DnsItem> result = new ArrayList<>();
         for (DnsItem item : enregistrements) {
-            if (item.getNommachine().getDomaine().equals(domaine)) {
+            if (item.getNomMachineobj().getDomaine().equals(domaine)) {
                 result.add(item);
             }
         }
@@ -96,11 +96,11 @@ public class Dns{
         AdresseIP ip = new AdresseIP(ipstr);
         NomMachine machine = new NomMachine(nom, domaine);
         for (DnsItem item : enregistrements) {
-            if (item.getIp().equals(ip)) {
+            if (item.getAdresseIpobj().equals(ip)) {
                 throw new IllegalArgumentException("Erreur : l'adresse IP " + ip + " existe déjà.");
             }
 
-            if (item.getNommachine().equals(machine)) {
+            if (item.getNomMachineobj().equals(machine)) {
                 throw new IllegalArgumentException("Erreur : la machine " + machine + " existe déjà dans la base.");
             }
             
