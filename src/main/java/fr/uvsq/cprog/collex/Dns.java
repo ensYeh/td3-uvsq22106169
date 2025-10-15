@@ -60,19 +60,19 @@ public class Dns{
         return enregistrements;
     }
 
-    public DnsItem getItem(AdresseIP ip) {
+    public NomMachine getItem(AdresseIP ip) {
         for (DnsItem item : enregistrements) {
             if (item.getIp().equals(ip)) {
-                return item;
+                return item.getNommachine();
             }
         }
         return null;
     }
     
-    public DnsItem getItem(NomMachine machine) {
+    public AdresseIP getItem(NomMachine machine) {
         for (DnsItem item : enregistrements) {
             if (item.getNommachine().equals(machine)) {
-                return item;
+                return item.getIp();
             }
         }
         return null;
