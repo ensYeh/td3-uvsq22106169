@@ -9,7 +9,7 @@ public class DnsItem {
 
     public DnsItem(NomMachine nomMachine, AdresseIP adresseIp) {
         if (nomMachine == null || adresseIp == null) {
-            throw new IllegalArgumentException("NomMAchine et AdresseIP ne peuvent être nuls");
+            throw new IllegalArgumentException("NomMachine et AdresseIP ne peuvent être nuls");
         }
 
         this.nomMachine = nomMachine;
