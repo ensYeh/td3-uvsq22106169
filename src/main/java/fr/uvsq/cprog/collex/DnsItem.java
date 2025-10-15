@@ -16,11 +16,11 @@ public class DnsItem {
         this.adresseIp = adresseIp;
     }
 
-    public NomMachine getNommachine() {
+    public NomMachine getNomMachineobj() {
         return nomMachine;
     }
 
-    public AdresseIP getIp() {
+    public AdresseIP getAdresseIpobj() {
         return adresseIp;
     }
 
