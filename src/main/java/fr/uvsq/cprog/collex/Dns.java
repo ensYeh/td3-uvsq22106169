@@ -114,8 +114,6 @@ public class Dns{
         }
         DnsItem item = new DnsItem(machine,ip);
         enregistrements.add(item);
-        System.out.println("Ajout réussi : " + item);
-
         
         try (BufferedWriter w = new BufferedWriter(new FileWriter(this.path, true))) {
             w.write(ipstr + " " + nom + "." + domaine + System.lineSeparator());
