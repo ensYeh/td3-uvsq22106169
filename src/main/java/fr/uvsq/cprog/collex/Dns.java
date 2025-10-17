@@ -108,7 +108,7 @@ public class Dns{
             }
 
             if (item.getNomMachineobj().equals(machine)) {
-                throw new IllegalArgumentException("Erreur : la machine " + machine + " existe déjà dans la base.");
+                throw new IllegalArgumentException("Erreur : la machine " + machine + " existe déjà.");
             }
             
         }
