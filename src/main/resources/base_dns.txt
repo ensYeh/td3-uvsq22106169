@@ -1,0 +1,6 @@
+193.51.25.12 ecampus.uvsq.fr
+193.51.31.90 www.uvsq.fr
+193.51.31.154 poste.uvsq.fr
+193.55.30.41 www.gmail.com
+152.35.22.12 https.gmail.com
+
