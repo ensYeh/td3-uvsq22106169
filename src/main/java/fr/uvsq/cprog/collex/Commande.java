@@ -1,5 +1,5 @@
 package fr.uvsq.cprog.collex;
 
 public interface Commande {
-    void execute();
+  void execute();
 }

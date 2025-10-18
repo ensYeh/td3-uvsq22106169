@@ -1,9 +1,9 @@
 package fr.uvsq.cprog.collex;
 
-public class AdresseIP {
+public class AdresseIp {
   private final String ip;
 
-  public AdresseIP(String ip) {
+  public AdresseIp(String ip) {
     if (ip == null) {
       throw new IllegalArgumentException("Adresse IP ne peut pas être nulle");
     }
@@ -31,7 +31,7 @@ public class AdresseIP {
       return false;
     }
 
-    AdresseIP other = (AdresseIP) obj;
+    AdresseIp other = (AdresseIp) obj;
     return ip.equals(other.ip);
   }
 

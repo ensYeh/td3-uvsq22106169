@@ -50,7 +50,7 @@ public class DnsTui {
         return new AjouterItem(dns, ip, nom, domaine);
 
       } else if (ligne.matches("^\\d+\\.\\d+\\.\\d+\\.\\d+$")) {
-        return new RechercheParIp(new AdresseIP(ligne), dns);
+        return new RechercheParIp(new AdresseIp(ligne), dns);
 
       } else if (ligne.contains(".")) {
         int indexPoint = ligne.indexOf('.');

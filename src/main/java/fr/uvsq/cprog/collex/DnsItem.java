@@ -4,48 +4,48 @@ import java.util.Objects;
 
 public class DnsItem {
     
-    private final NomMachine nomMachine;
-    private final AdresseIP adresseIp;
+  private final NomMachine nomMachine;
+  private final AdresseIp adresseIp;
 
-    public DnsItem(NomMachine nomMachine, AdresseIP adresseIp) {
-        if (nomMachine == null || adresseIp == null) {
-            throw new IllegalArgumentException("NomMachine et AdresseIP ne peuvent être nuls");
-        }
-
-        this.nomMachine = nomMachine;
-        this.adresseIp = adresseIp;
+  public DnsItem(NomMachine nomMachine, AdresseIp adresseIp) {
+    if (nomMachine == null || adresseIp == null) {
+      throw new IllegalArgumentException("NomMachine et AdresseIp ne peuvent être nuls");
     }
 
-    public NomMachine getNomMachineobj() {
-        return nomMachine;
+    this.nomMachine = nomMachine;
+    this.adresseIp = adresseIp;
+  }
+
+  public NomMachine getNomMachineobj() {
+    return nomMachine;
+  }
+
+  public AdresseIp getAdresseIpobj() {
+    return adresseIp;
+  }
+
+  @Override
+  public String toString() {
+    return adresseIp + " " + nomMachine;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
     }
 
-    public AdresseIP getAdresseIpobj() {
-        return adresseIp;
+    if (obj == null || getClass() != obj.getClass()) {
+      return false;
     }
 
-    @Override
-    public String toString() {
-        return adresseIp + " " + nomMachine;
-    }
+    DnsItem d = (DnsItem) obj;
+    return Objects.equals(nomMachine, d.nomMachine) && Objects.equals(adresseIp, d.adresseIp);
+  }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-
-        DnsItem d = (DnsItem) obj;
-        return Objects.equals(nomMachine,d.nomMachine) && Objects.equals(adresseIp,d.adresseIp);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nomMachine, adresseIp);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(nomMachine, adresseIp);
+  }
  
 }

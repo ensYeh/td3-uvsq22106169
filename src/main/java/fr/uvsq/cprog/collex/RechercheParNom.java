@@ -15,7 +15,7 @@ public class RechercheParNom implements Commande {
 
   @Override
   public void execute() {
-    AdresseIP ip = dns.getItem(nommachine);
+    AdresseIp ip = dns.getItem(nommachine);
     if (ip != null) {
       System.out.println(ip);
     } else {

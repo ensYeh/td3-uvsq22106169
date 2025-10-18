@@ -6,9 +6,12 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 import org.junit.Test;
+
 
 /**
  * Classe de tests unitaires pour la classe Dns.
@@ -16,11 +19,22 @@ import org.junit.Test;
 
 public class DnsTest {
     
-  Dns dns = new Dns("C:/Users/admin/td3-uvsq22106169/base_dns.txt");
+  Dns dns;
+
+  {
+    Properties p = new Properties();
+    try (FileInputStream in = new FileInputStream("src/main/resources/config.properties")) {
+      p.load(in);
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+    String path = p.getProperty("dnsFile");
+    dns = new Dns(path);
+  }
 
   @Test
   public void test_recherche_ip() {
-    AdresseIP ipRecherche = new AdresseIP("193.51.25.12");
+    AdresseIp ipRecherche = new AdresseIp("193.51.25.12");
     NomMachine machineTrouvee = dns.getItem(ipRecherche);
     assertEquals("ecampus.uvsq.fr", machineTrouvee.getNomQualifie());
   }
@@ -28,13 +42,13 @@ public class DnsTest {
   @Test
   public void test_recherche_machine() {
     NomMachine machineRecherche = new NomMachine("www", "uvsq.fr");
-    AdresseIP ipTrouvee = dns.getItem(machineRecherche);
+    AdresseIp ipTrouvee = dns.getItem(machineRecherche);
     assertEquals("193.51.31.90", ipTrouvee.getIp());
   }
 
   @Test
   public void test_ip_inexistante() {
-    AdresseIP ipRecherche = new AdresseIP("192.168.43.241");
+    AdresseIp ipRecherche = new AdresseIp("192.168.43.241");
     NomMachine machineTrouvee = dns.getItem(ipRecherche);
     assertNull(machineTrouvee);
 
@@ -43,7 +57,7 @@ public class DnsTest {
   @Test
   public void test_machine_inexistante() {
     NomMachine machineRecherche = new NomMachine("mauvaise", "domaine.fr");
-    AdresseIP ipTrouvee = dns.getItem(machineRecherche);
+    AdresseIp ipTrouvee = dns.getItem(machineRecherche);
     assertNull(ipTrouvee);
   }
 
@@ -67,7 +81,7 @@ public class DnsTest {
 
     dnsTest.addItem("192.168.1.100", "nouvelleMachine", "test.fr");
 
-    AdresseIP ip = new AdresseIP("192.168.1.100");
+    AdresseIp ip = new AdresseIp("192.168.1.100");
     NomMachine nm = dnsTest.getItem(ip);
     assertNotNull(nm);
     assertEquals("nouvelleMachine.test.fr", nm.getNomQualifie());

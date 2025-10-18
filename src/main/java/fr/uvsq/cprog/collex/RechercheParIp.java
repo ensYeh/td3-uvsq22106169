@@ -5,10 +5,10 @@ package fr.uvsq.cprog.collex;
  */
 public class RechercheParIp implements Commande {
 
-  private final AdresseIP ip;
+  private final AdresseIp ip;
   private final Dns dns;
 
-  public RechercheParIP(AdresseIP ip, Dns dns) {
+  public RechercheParIp(AdresseIp ip, Dns dns) {
     this.ip = ip;
     this.dns = dns;
   }
