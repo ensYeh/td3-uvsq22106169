@@ -10,7 +10,7 @@ import org.junit.Test;
 /**
  * Classe de tests unitaires pour la classe AdresseIP.
  */
-public class AdresseIPTest {
+public class AdresseIpTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void test_adresse_vide() {
