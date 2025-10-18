@@ -5,7 +5,7 @@ public class AdresseIP {
 
   public AdresseIP(String ip) {
     if (ip == null) {
-    throw new IllegalArgumentException("Adresse IP ne peut pas être nulle");
+      throw new IllegalArgumentException("Adresse IP ne peut pas être nulle");
     }
 
     if (ip.isEmpty() || !ip.matches(
@@ -31,8 +31,8 @@ public class AdresseIP {
       return false;
     }
 
-    AdresseIP IP = (AdresseIP) obj;
-    return ip.equals(IP.ip);
+    AdresseIP other = (AdresseIP) obj;
+    return ip.equals(other.ip);
   }
 
   @Override
