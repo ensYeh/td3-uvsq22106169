@@ -3,7 +3,7 @@ package fr.uvsq.cprog.collex;
 /**
  * Commande permettant d'effectuer une recherche de nom de machine à partir d'une adresse ip.
  */
-public class RechercheParIP implements Commande {
+public class RechercheParIp implements Commande {
 
   private final AdresseIP ip;
   private final Dns dns;
