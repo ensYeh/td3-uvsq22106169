@@ -11,8 +11,11 @@ public class RechercheParDomaine implements Commande {
 
   private final Dns dns;
   private final String domaine;
-  private final boolean trieparAdresse;
+  private final boolean trieparAdresse; 
 
+  /**
+   * Constructeur de la commande de recherche par domaine.
+   */
   public RechercheParDomaine(Dns dns, String domaine, boolean trieparAdresse) {
 
     this.dns = dns;
@@ -20,6 +23,9 @@ public class RechercheParDomaine implements Commande {
     this.trieparAdresse = trieparAdresse;
   }
 
+  /**
+   * Exécute la commande de recherche et affiche les résultats.
+   */
   @Override
   public void execute() {
     List<DnsItem> items = dns.getItems(domaine);

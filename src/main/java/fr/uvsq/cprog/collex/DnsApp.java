@@ -4,10 +4,16 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-
+/**
+ * Classe principale de l'application DNS.
+ * Elle récupère les données et exécute l'interface utilisateur.
+ */
 
 public class DnsApp {
 
+  /**
+   * Méthode principale d'exécition de l'application.
+   */
   public void run() {
     try {
       Properties p = new Properties();

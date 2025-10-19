@@ -2,15 +2,26 @@ package fr.uvsq.cprog.collex;
 
 import java.util.Scanner;
 
+/**
+ * Classe permet l'interaction avec l'utilisateur.
+ */
 public class DnsTui {
 
   private final Scanner scanner = new Scanner(System.in);
   private final Dns dns;
 
+  /**
+   * Constructeur de la classe DnsTui.
+   * Initialise un Dns.
+   */
   public DnsTui(Dns dns) {
     this.dns = dns;
   }
 
+  /**
+   * Analyse la commande saisi par l’utilisateur 
+   * et retourne l'objet implémentant l’interface.
+   */
   public Commande nextCommande() {
     System.out.print("> ");
     String ligne = scanner.nextLine().trim();

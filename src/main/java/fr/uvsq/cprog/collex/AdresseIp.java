@@ -1,8 +1,16 @@
 package fr.uvsq.cprog.collex;
 
+/**
+ * Classe représentant une adresse IP valide.
+ */
+
 public class AdresseIp {
   private final String ip;
 
+  /**
+   * Constructeur de la classe Adresse IP.
+   * Initialise une adresse IP après vérification.
+   */
   public AdresseIp(String ip) {
     if (ip == null) {
       throw new IllegalArgumentException("Adresse IP ne peut pas être nulle");

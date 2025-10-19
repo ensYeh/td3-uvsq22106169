@@ -9,12 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
+/**
+ * Classe représentant une base de données DNS.
+ */
 public class Dns {
 
   private final List<DnsItem> enregistrements = new ArrayList<>();
   private final String path;
     
+  /**
+   * Constructeur de la classe DNS.
+   */
   public Dns(String path) {
     this.path = path;
 
@@ -71,10 +76,16 @@ public class Dns {
 
   }
 
+  /**
+   * Retourne la liste complète des machines DNS.
+   */
   public List<DnsItem> getEnregistrements() {
     return enregistrements;
   }
 
+  /**
+   * Recherche un nom de machine correspondant à une adresse IP donnée.
+   */
   public NomMachine getItem(AdresseIp ip) {
     for (DnsItem item : enregistrements) {
       if (item.getAdresseIpobj().equals(ip)) {
@@ -84,6 +95,10 @@ public class Dns {
     return null;
   }
     
+  /**
+   * Recherche une adresse IP correspondant à un nom de machine donné.
+   */
+
   public AdresseIp getItem(NomMachine machine) {
     for (DnsItem item : enregistrements) {
       if (item.getNomMachineobj().equals(machine)) {
@@ -93,6 +108,9 @@ public class Dns {
     return null;
   }
 
+  /**
+   * Recherche de toutes les machines appartenant à un domaine donné.
+   */
   public List<DnsItem> getItems(String domaine) {
     List<DnsItem> result = new ArrayList<>();
     for (DnsItem item : enregistrements) {
@@ -103,6 +121,9 @@ public class Dns {
     return result;
   }
 
+  /**
+  * Ajoute une nouvelle machine avec son nom et son adresse IP.
+  */
   public void addItem(String ipstr, String nom, String domaine) {
     AdresseIp ip = new AdresseIp(ipstr);
     NomMachine machine = new NomMachine(nom, domaine);
