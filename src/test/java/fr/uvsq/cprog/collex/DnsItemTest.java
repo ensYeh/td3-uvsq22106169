@@ -13,7 +13,7 @@ public class DnsItemTest {
     
   @Test(expected = IllegalArgumentException.class) 
   public void test_nommachine_null() {
-    new DnsItem(null, new AdresseIP("193.51.31.90"));    
+    new DnsItem(null, new AdresseIp("193.51.31.90"));    
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -29,7 +29,7 @@ public class DnsItemTest {
   @Test
   public void test_getters() {
     NomMachine nm = new NomMachine("www", "uvsq.fr");
-    AdresseIP ip = new AdresseIP("193.51.31.90");
+    AdresseIp ip = new AdresseIp("193.51.31.90");
     DnsItem item = new DnsItem(nm, ip);
 
     assertEquals(nm, item.getNomMachineobj());
@@ -39,7 +39,7 @@ public class DnsItemTest {
   @Test
   public void test_toString() {
     NomMachine nm = new NomMachine("www", "uvsq.fr");
-    AdresseIP ip = new AdresseIP("193.51.31.90");
+    AdresseIp ip = new AdresseIp("193.51.31.90");
     DnsItem item = new DnsItem(nm, ip);
 
     assertEquals("193.51.31.90 www.uvsq.fr", item.toString());
@@ -47,9 +47,9 @@ public class DnsItemTest {
 
   @Test
   public void test_equals_hashCode() {
-    DnsItem item1 = new DnsItem(new NomMachine("www", "uvsq.fr"), new AdresseIP("193.51.31.90"));
-    DnsItem item2 = new DnsItem(new NomMachine("www", "uvsq.fr"), new AdresseIP("193.51.31.90"));
-    DnsItem item3 = new DnsItem(new NomMachine("poste", "uvsq.fr"), new AdresseIP("193.51.31.90"));
+    DnsItem item1 = new DnsItem(new NomMachine("www", "uvsq.fr"), new AdresseIp("193.51.31.90"));
+    DnsItem item2 = new DnsItem(new NomMachine("www", "uvsq.fr"), new AdresseIp("193.51.31.90"));
+    DnsItem item3 = new DnsItem(new NomMachine("poste", "uvsq.fr"), new AdresseIp("193.51.31.90"));
 
     assertEquals(item1, item2);
     assertEquals(item1.hashCode(), item2.hashCode());

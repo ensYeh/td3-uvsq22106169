@@ -35,7 +35,7 @@ public class AdresseIpTest {
 
   @Test
   public void test_adresse_valide() {
-    AdresseIp ip = new AdresseIP("193.51.25.12");
+    AdresseIp ip = new AdresseIp("193.51.25.12");
     assertEquals("193.51.25.12", ip.getIp());
   }
 
