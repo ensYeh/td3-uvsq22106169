@@ -37,7 +37,7 @@ public class RechercheParIpTest {
   }
 
   @Test
-  public void test_addresseip_existante() throws IOException{
+  public void test_addresseip_existante() throws IOException {
     File tempFile = File.createTempFile("Test_temp", ".txt");
     tempFile.deleteOnExit();
     String path = tempFile.getAbsolutePath();
